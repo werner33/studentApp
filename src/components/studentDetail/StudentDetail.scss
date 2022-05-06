@@ -1,0 +1,35 @@
+.studentDetail {
+
+    background-color: white;
+    border-radius: 10px;  
+    padding: 20px 0;
+
+    &__infoCardTop{
+        text-align: center;
+    }
+
+    &__name {
+        font-weight: 600;
+        font-size: 18px;
+        margin-top: 7px;
+    }
+
+    &__image {
+        width: 75px;
+        height: 75px;
+        border: 6px #bbb solid;
+        border-radius: 50px;
+    }
+
+    &__company {
+        padding: 20px;
+        span {
+            font-weight: 600;
+        }
+    }
+
+    &__goBack {
+        margin: 20px 0;
+        color: blue;
+    }
+}

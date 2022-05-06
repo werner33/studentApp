@@ -1,14 +1,32 @@
 import React from 'react';
+import {render} from 'react-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-import StudentList from './components/studentList/StudentList';
+import Navbar from './layout/navbar/Navbar';
 
-import './App.css';
+import StudentManagement from './pages/studentManagement/StudentManagement';
+import StudentProfile from './pages/studentProfile/StudentProfile';
+
+import './App.scss';
 
 function App() {
 
   return (
     <div className="App">
-      <StudentList />
+      <BrowserRouter>
+        <Navbar />
+        <div className="pageContainer">
+          <Routes>  
+            <Route path="/" element={<StudentManagement />} />
+            <Route path="/student/:id" element={<StudentProfile />} />
+          </Routes>
+        </div>
+
+      </BrowserRouter>
     </div>
   );
 }

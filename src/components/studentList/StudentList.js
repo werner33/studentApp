@@ -1,25 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 import StudentCard from '../studentCard/StudentCard';
 
-import './StudentList.css';
+import './StudentList.scss';
 
-const StudentList = () => {
+const StudentList = ({students}) => {
 
-    const [students, setStudents] = useState([]);
-
-    useEffect(() => {
-
-        let url = "https://acceleratorprojectapril.herokuapp.com/students";
-
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {    
-            setStudents(data.students);
-        });
-    
-      }, []);
-
+    students.sort((studentA, studentB) => {
+        if(studentA.company == '') return 1;
+        return studentA.company >  studentB.company ? 1 : -1;
+    });
 
     return (
         <div className="studentList">

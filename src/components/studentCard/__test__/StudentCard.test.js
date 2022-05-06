@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import StudentCard from './StudentCard';
+import StudentCard from '../StudentCard';
 
 const studentData = {
   city: "Fushë-Muhurr",
@@ -23,7 +23,7 @@ describe('Student Card Component', () => {
 
   it('shows the student name label with first and last name', () => {
     const {getByText} = render(<StudentCard student={studentData} />);
-    expect(getByText("Student name: Ingaberg Orton")).toBeInTheDocument();
+    expect(getByText("Ingaberg Orton")).toBeInTheDocument();
   })
 
   // new it block

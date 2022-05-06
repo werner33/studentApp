@@ -1,0 +1,24 @@
+@import '../../styleUtils/layouts.scss';
+
+.studentProfile{
+
+    h2 {
+        text-align: center;
+    }
+
+    &__components {
+        @extend %two-columns;
+        > div {
+            margin-bottom: 10px;
+        }
+    }   
+ }
+
+ @media only screen and (max-width: 440px){
+     .studentProfile {
+         &__components {
+          display: block;   
+         }
+     }
+     
+ }
