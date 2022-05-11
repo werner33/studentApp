@@ -1,6 +1,17 @@
 import React, {useState} from 'react';
 
+import TextField from '@mui/material/TextField';
+import HalfWidthButton from '../../modifiedMaterialComponents/HalfWidthButton';
+// import Button from '@mui/material/Button';
+// import { styled } from '@mui/material/styles';
+
 import './StudentForm.scss';
+
+// const HalfWidthButton = styled(Button)({
+
+//     width: '50%'
+
+// });
 
 function StudentForm({refreshStudents, studentData, setStudentData, method='POST'}) {
 
@@ -25,7 +36,7 @@ function StudentForm({refreshStudents, studentData, setStudentData, method='POST
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({firstName, lastName, email, company, city, skill, pic})
-          }
+        }
 
         let url = 'https://acceleratorprojectapril.herokuapp.com/students';
 
@@ -72,20 +83,24 @@ function StudentForm({refreshStudents, studentData, setStudentData, method='POST
             <h2 className="studentForm__title">Student Form</h2>
             <div className="studentForm__notification" style={{ "color" : error ? "red" : "green"}}>{notification}</div>
             <div className="studentForm__inputContainer">
-                <label >First name:</label>
-                <input 
+                <TextField 
+                    id="first-name" 
+                    label="First Name" 
+                    variant="outlined" 
                     value={firstName} 
-                    className="studentForm__input" 
-                    placeholder='Tim'
-                    onChange={(e)=>setFirstName(e.target.value)} />
+                    onChange={(e)=>setFirstName(e.target.value)}
+                />
             </div>
+           
+            
             <div className="studentForm__inputContainer">
-                <label >Last name:</label>
-                <input 
-                    value={lastName} 
-                    className="studentForm__input" 
-                    placeholder='Bob'
-                    onChange={(e)=>setLastName(e.target.value)} />
+                <TextField 
+                id="last-name" 
+                label="Last Name" 
+                variant="outlined" 
+                value={lastName} 
+                onChange={(e)=>setLastName(e.target.value)}
+            />
             </div>
             <div className="studentForm__inputContainer">
                 <label >Email:</label>
@@ -127,10 +142,13 @@ function StudentForm({refreshStudents, studentData, setStudentData, method='POST
                     placeholder='https://www.placeholder.com/100x100'
                     onChange={(e)=>setPic(e.target.value)} />
             </div>
-            <div className="studentForm__submitButton"
-                onClick={() => createNewStudent()}>
+            <HalfWidthButton 
+                variant="contained"
+                size="large"
+                onClick={() => createNewStudent()}
+            >
                 Submit
-            </div>
+            </HalfWidthButton>
         </div>
     );
 }
