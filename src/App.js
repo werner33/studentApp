@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <p>Some new change</p>
+        <p>Some new change for a second time</p>
         <div className="pageContainer">
           <Routes>  
             <Route path="/" element={<StudentManagement />} />
